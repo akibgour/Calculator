@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="box">
+            <input  type="text" id="show">
+        </div>
+        <div class="btn">
+        <div class="btn1 btncontainer">
+            <button id="clearbtn" >C</button>
+            <button  id="cutbtn">X</button>
+            <button onclick="store('%')">%</button>
+            <button onclick="store('/')">/</button>
+        </div>
+        <div class="btn2 btncontainer">
+            <button onclick="store('7')">7</button>
+            <button onclick="store('8')">8</button>
+            <button onclick="store('9')">9</button>
+            <button onclick="store('*')" style="color: orange;">x</button>
+        </div>
+        <div class="btn3 btncontainer">
+            <button onclick="store('4')">4</button>
+            <button onclick="store('5')">5</button>
+            <button onclick="store('6')">6</button>
+            <button onclick="store('-')" style="color: orange;">-</button>
+        </div>
+        <div class="btn4 btncontainer">
+            <button onclick="store('1')">1</button>
+            <button onclick="store('2')">2</button>
+            <button onclick="store('3')">3</button>
+            <button onclick="store('+')" style="color: orange;">+</button>
+        </div>
+        <div class="btn5 btncontainer">
+            <button onclick="store('00')">00</button>
+            <button onclick="store('0')">0</button>
+            <button onclick="store('.')">.</button>
+            <button id="cal" style="background-color: orange;">=</button>
+        </div>
+        </div>
+    </div>
+    <script>
+
+        let display = document.getElementById('show');
+    
+        let valuue ;
+        let store =  function(val){
+            display.value += val;
+            valuue = display.value;
+        }
+  
+        let clearbtn = document.getElementById('clearbtn');
+        clearbtn.addEventListener('click',function(){
+            display.value = '';
+        })
+
+        let cutbtn = document.getElementById('cutbtn');
+        cutbtn.addEventListener('click',function(){
+            display.value = display.value.slice(0, -1);
+        })
+    
+        
+        let calculate = document.getElementById('cal');
+    
+            cal.addEventListener('click',function(){
+                try{
+                    display.value = eval(valuue);
+                }
+                catch(error){
+                    display.value = "error";
+                }
+            })
+        
+    </script>
+</body>
+</html>
